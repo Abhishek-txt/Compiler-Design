@@ -5,9 +5,13 @@ using namespace std;
 
 int main() {
   string myText;
+  int lineNo = 0;
   ifstream MyReadFile("input.txt");
 
   while (getline(MyReadFile, myText)) {
+
+    lineNo++;
+    cout << "Line " << lineNo << ": " << myText << "\n";
 
     int len = myText.length();
     int i = 0;
@@ -93,6 +97,7 @@ int main() {
         i++;
       }
     }
+    cout << "\n";
   }
 
   MyReadFile.close();
