@@ -8,19 +8,16 @@ int main() {
 
   ifstream MyReadFile("input.txt");
 
-  // Read the file line by line
   while (getline(MyReadFile, myText)) {
 
     int i = 0;
     while (i < myText.length()) {
       char c = myText[i];
 
-      // skip spaces
       if (c == ' ' || c == '\t' || c == '\r') {
         i++;
       }
 
-      // word: keyword or identifier
       else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
         string word = "";
         while (i < myText.length() && ((myText[i] >= 'a' && myText[i] <= 'z') ||
@@ -36,7 +33,7 @@ int main() {
           cout << "Identifier  : " << word << "\n";
       }
 
-      // number
+     
       else if (c >= '0' && c <= '9') {
         string number = "";
         while (i < myText.length() && ((myText[i] >= '0' && myText[i] <= '9') || myText[i] == '.')) {
@@ -46,7 +43,6 @@ int main() {
         cout << "Number      : " << number << "\n";
       }
 
-      // string
       else if (c == '"') {
         string text = "\"";
         i++;
@@ -59,19 +55,16 @@ int main() {
         cout << "String      : " << text << "\n";
       }
 
-      // operator <<
       else if (c == '<' && i + 1 < myText.length() && myText[i + 1] == '<') {
         cout << "Operator    : <<" << "\n";
         i = i + 2;
       }
 
-      // operator =
       else if (c == '=') {
         cout << "Operator    : =" << "\n";
         i++;
       }
 
-      // punctuation: ( ) { } ;
       else {
         cout << "Punctuation : " << c << "\n";
         i++;
@@ -79,6 +72,5 @@ int main() {
     }
   }
 
-  // Close the file
   MyReadFile.close();
 }
