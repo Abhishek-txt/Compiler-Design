@@ -13,15 +13,21 @@ int main() {
     lineNo++;
     cout << "Line " << lineNo << ": " << myText << "\n";
 
+
+
     int len = myText.length();
     int i = 0;
 
     while (i < len) {
       char c = myText[i];
 
+
+
       if (c == ' ' || c == '\t' || c == '\r') {
         i++;
       }
+
+
 
       else if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || c == '_') {
         string word = "";
@@ -31,12 +37,18 @@ int main() {
           word = word + myText[i];
           i++;
         }
+
+
+
         if (word == "int" || word == "float" || word == "return" ||
             word == "main" || word == "cout" || word == "endl")
           cout << "Keyword     : " << word << "\n";
         else
           cout << "Identifier  : " << word << "\n";
       }
+
+
+
 
       else if (c >= '0' && c <= '9') {
         string number = "";
@@ -46,9 +58,16 @@ int main() {
         while (i < len && ((myText[i] >= '0' && myText[i] <= '9') ||
                (myText[i] >= 'a' && myText[i] <= 'z') ||
                (myText[i] >= 'A' && myText[i] <= 'Z') ||
-               myText[i] == '_' || myText[i] == '.')) {
+               myText[i] == '_' || myText[i] == '.')) 
+
+
+
+        {
           if (myText[i] == '.') dots++;
           else if (myText[i] < '0' || myText[i] > '9') onlyDigits = false;
+
+
+          
           number = number + myText[i];
           i++;
         }
